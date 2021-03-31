@@ -1,0 +1,50 @@
+package com.cg.es.service;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import com.cg.es.entity.CustomerEntity;
+import com.cg.es.entity.Manager;
+import com.cg.es.exception.CustomerNotFoundException;
+import com.cg.es.model.ManagerModel;
+import com.cg.es.repository.ManagerRepository;
+
+public class ManagerServiceTest {
+
+	@Mock
+	private ManagerRepository managerRepo;
+	
+	@InjectMocks
+	private ManagerServiceImpl service;
+	
+	@Test
+	@DisplayName("add manager")
+	void testAdd() throws CustomerNotFoundException {
+		
+		Manager manager=new Manager(101L,"manager@123");
+		Mockito.when(managerRepo.save(manager)).thenReturn(manager);
+		assertTrue(managerRepo.save(manager) != null);
+	}
+	
+	@Test
+	@DisplayName("Customer Details should delete")
+	void testDelete() throws CustomerNotFoundException {
+		
+		
+		Manager manager=new Manager(1L,"manager@123");
+		Mockito.when(managerRepo.save(manager)).thenReturn(manager);
+
+		ManagerModel expected=new ManagerModel(1L,"manager@123");
+		
+		service.deleteById(manager.getManagerId());
+		verify(managerRepo,times(1)).deleteById(manager.getManagerId());
+	}
+	
+}

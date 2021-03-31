@@ -1,0 +1,81 @@
+package com.cg.es.entity;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Manager {
+
+	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long managerId;
+
+
+//	@NotEmpty(message="password cannot be empty")
+//	@NotNull(message="password cannot be omitted")
+	private String password;
+
+	@OneToMany(mappedBy = "manager",cascade = CascadeType.ALL)
+	private Set<ElectronicProductEntity> ePEManage;
+	
+	@OneToMany(mappedBy = "manager",cascade = CascadeType.ALL)
+	private Set<CustomerEntity> eCManager;
+	
+	
+
+	
+	@OneToMany(mappedBy = "manager",cascade = CascadeType.ALL)
+	private Set<ElectronicProductOrder> ePOManager;
+	
+
+	public Manager() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Manager(Long managerId, String password) {
+		super();
+		this.managerId = managerId;
+		this.password = password;
+	}
+
+
+	public Long getmanagerId() {
+		return managerId;
+	}
+
+
+	public void setId(Long managerId) {
+		this.managerId = managerId;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+//	@OneToMany
+//	private List<Customer> customer;
+//	
+//	@OneToMany
+//	private List<Basket> basket;
+//	
+//	@OneToMany
+//	private List<ElectronicProduct> electronicproduct;
+//	
+//	@OneToMany
+//	private List<ElectronicProduct> electronicproduct;
+	
+	
+}

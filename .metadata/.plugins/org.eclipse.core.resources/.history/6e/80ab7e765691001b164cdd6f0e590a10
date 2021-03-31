@@ -1,0 +1,92 @@
+//package com.cg.es.service;
+//
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertNull;
+//
+//import java.util.Optional;
+//
+//import org.junit.jupiter.api.DisplayName;
+//import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.Mockito;
+//import org.mockito.junit.jupiter.MockitoExtension;
+//
+//import com.cg.es.repository.ElectronicProductOrderRepository;
+//import com.cg.es.entity.ElectronicProductOrderEntity;
+//import com.cg.es.exception.ElectronicProductOrderNotFoundException;
+//import com.cg.es.model.ElectronicProductOrderModel;
+//
+//@ExtendWith(MockitoExtension.class)
+//public class ElectronicProductOrderServiceTest {
+//	@Mock
+//	private ElectronicProductOrderRepository ElectronicProductOrderorderRepository;
+//	
+//	@InjectMocks
+//	private ElectronicProductOrderServiceImpl service;
+//	
+//	@Test
+//	@DisplayName("Order Details add")
+//	void testAdd() throws ElectronicProductOrderNotFoundException {
+//		ElectronicProductOrderEntity order=new ElectronicProductOrderEntity(1L,"100","2020-11-11","12:00","35.0");
+//		
+//		Mockito.when(ElectronicProductOrderRepository.save(order)).thenReturn(order);
+//
+//		ElectronicProductOrderModel expected=new ElectronicProductOrderModel(1L,"2020-11-11","12:00","100","35.0");
+//		
+//		ElectronicProductOrderEntity actual = service.addOrder(ElectronicProductorderEntity);
+//		
+//		assertEquals(expected,actual);
+//
+//	}
+//	
+//	@Test
+//	@DisplayName("Order Details should delete")
+//	void testDelete() throws ElectronicProductOrderNotFoundException {
+//		ElectronicProductOrderEntity order=new ElectronicProductOrderEntity(1L,"2020-11-11","12:00","100","35.0");
+//		
+//		Mockito.when(ElectronicProductOrderRepository.save(order)).thenReturn(order);
+//
+//		ElectronicProductOrderModel expected=new ElectronicProductOrderModel(1L,"2020-11-11","12:00","100","35.0");
+//		
+//		ElectronicProductOrderEntity added = service.addOrder(ElectronicProductorderEntity);
+//		
+//		assertEquals(expected,added);
+//		
+//		Mockito.doNothing().when(ElectronicProductorderRepository).deleteById(added.getElectronicProductOrderNumber());
+//
+//		service.deleteManager(added.getElectronicProductOrderNumber());
+//	}
+//	
+//	@Test
+//	@DisplayName("get by Id ")
+//	void testGetById () {
+//		ElectronicProductOrderEntity testdata=new ElectronicProductOrderEntity(1L,"2020-11-11","12:00","100","35.0");
+//		
+//		ElectronicProductOrderEntity expected=new ElectronicProductOrderEntity(1L,"2020-11-11","12:00","100","35.0");
+//		
+//		
+//		Mockito.when(ElectronicProductOrderrepository.findById(testdata.getElectronicProductOrderId())).thenReturn(Optional.of(testdata));
+//	
+//		ElectronicProductOrderModel actual=(ElectronicProductOrderModel) service.findById(testdata.getElectronicProductOrderId());
+//		
+//		assertEquals(expected,actual);
+//	}
+//	
+//	@Test
+//	@DisplayName("get by id return null")
+//	void testGetByIdNull() {		
+//		
+//		Mockito.when(ElectronicProductOrderRepository.findById(1L)).thenReturn(Optional.empty());
+//		
+//		ElectronicProductOrderModel actual = service.findById(1L);
+//		assertNull(actual);
+//	}
+//	
+//	
+//	
+//	
+//	
+//
+//}

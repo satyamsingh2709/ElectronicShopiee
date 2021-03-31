@@ -1,0 +1,34 @@
+package com.cg.es.service;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import com.cg.es.entity.CustomerEntity;
+import com.cg.es.entity.Manager;
+import com.cg.es.exception.CustomerNotFoundException;
+import com.cg.es.model.AddressModel;
+import com.cg.es.repository.ManagerRepository;
+
+public class ManagerServiceTest {
+
+	@Mock
+	private ManagerRepository managerRepo;
+	
+	@InjectMocks
+	private ManagerServiceImpl service;
+	
+	@Test
+	@DisplayName("add manager")
+	void testAdd() throws CustomerNotFoundException {
+		
+		Manager manager=new Manager(101L,"manager@123");
+		Mockito.when(managerRepo.save(manager)).thenReturn(manager);
+		assertTrue(managerRepo.save(manager) != null);
+	}
+	
+}

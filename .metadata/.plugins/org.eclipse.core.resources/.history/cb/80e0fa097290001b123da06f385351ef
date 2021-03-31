@@ -1,0 +1,119 @@
+package com.cg.es.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+public class ElectronicProductOrder {
+
+	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long orderId;
+	
+	private int quantity;
+	
+
+	private LocalDate orderDate;
+	
+	private double totalAmount;
+	
+	
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="customerId")
+	private CustomerEntity customer;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private BasketEntity basket;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="managerId")
+	private Manager manager;
+	private String orderStatus;
+
+	public ElectronicProductOrder() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ElectronicProductOrder(Long orderId, LocalDate orderDate, CustomerEntity customer, BasketEntity basket,
+			double totalAmount, String orderStatus) {
+		super();
+		this.orderId = orderId;
+		this.orderDate = orderDate;
+		this.customer = customer;
+		this.basket = basket;
+		this.totalAmount = totalAmount;
+		this.orderStatus = orderStatus;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public CustomerEntity getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerEntity customer) {
+		this.customer = customer;
+	}
+
+	public BasketEntity getBasket() {
+		return basket;
+	}
+
+	public void setBasket(BasketEntity basket) {
+		this.basket = basket;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	
+
+	
+
+}

@@ -1,0 +1,99 @@
+package com.cg.es.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+public class ElectronicProductOrderModel {
+
+	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long orderId;
+
+	private LocalDate orderDate;
+
+	
+
+//	@NotEmpty(message = "total amount cannot be empty")
+//	@NotNull(message = "total amount cannot be omitted")
+	private double totalAmount;
+
+	//@NotEmpty(message = "order status cannot be empty")
+	//@NotNull(message = "order status cannot be omitted")
+	private String orderStatus;
+	
+	private Long customerId;
+	
+	private Long basketId;
+
+	public ElectronicProductOrderModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ElectronicProductOrderModel(Long orderId, LocalDate orderDate, double totalAmount, String orderStatus,
+			Long customerId, Long basketId) {
+		super();
+		this.orderId = orderId;
+		this.orderDate = orderDate;
+		this.totalAmount = totalAmount;
+		this.orderStatus = orderStatus;
+		this.customerId = customerId;
+		this.basketId = basketId;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+	public Long getBasketId() {
+		return basketId;
+	}
+
+	public void setBasketId(Long basketId) {
+		this.basketId = basketId;
+	}
+
+	
+	
+
+}

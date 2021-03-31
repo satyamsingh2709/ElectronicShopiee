@@ -1,0 +1,5 @@
+package com.cg.es.entity;
+
+public enum ProductType {
+	LAPTOPS,MOBILES,TV,REFRIGIRATOR, AC, COMPUTER_ACCESSORIES,MOBILE_ACCESSORIES
+}

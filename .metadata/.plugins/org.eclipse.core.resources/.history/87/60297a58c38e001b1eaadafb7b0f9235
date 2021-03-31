@@ -1,0 +1,15 @@
+package com.cg.es.service;
+
+import java.util.List;
+
+import com.cg.es.model.CustomerModel;
+import com.cg.es.model.ElectronicProductOrderModel;
+
+public interface ICustomerService {
+	CustomerModel getById(Long id) throws CustomerNotFoundException;
+	CustomerModel getByMobileNumber(String mobileNumber) throws CustomerNotFoundException;
+	CustomerModel add(CustomerModel subscriberModel) throws CustomerNotFoundException;
+	CustomerModel modify(CustomerModel subscriberModel, Long id) throws CustomerNotFoundException;
+	List<ElectronicProductOrderModel> getAllProductOrder(Long subscriberId) throws CustomerNotFoundException;
+
+}

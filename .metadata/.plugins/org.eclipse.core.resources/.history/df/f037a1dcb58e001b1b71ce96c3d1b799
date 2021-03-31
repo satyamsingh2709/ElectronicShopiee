@@ -1,0 +1,159 @@
+package com.cg.es.model;
+
+import java.util.List;
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import com.cg.es.entity.ElectronicProductOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
+
+public class CustomerModel {
+
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long customerId;
+
+	@NotNull(message="customerPassword cannot be omitted")
+	private String customerName;
+	
+	@JsonIgnore
+	@NotEmpty(message="customerPassword  cannot be empty")
+	@NotNull(message="customerPassword cannot be omitted")
+	private String customerPassword;
+
+	@Email(message = "email must be a valid one")
+	@NotNull(message = "email cannot be omitted")
+	private String customerEmail;
+
+	@Pattern(regexp = "[1-9][0-9]{9}", message = "mobile number is expected to be 10 digits and should not start with 0")
+	@NotNull(message = "Mobile number cannot be omitted")
+	private Long customerPhone;
+
+	
+	private String Address;
+
+//	@OneToMany(cascade=CascadeType.ALL,mappedBy="productList")
+//	private List<ElectronicProductOrder> electronicProductOrderSet;
+	
+	private Long basketId;
+	
+	
+	private List<Long> productOrder;
+
+
+	public CustomerModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public CustomerModel(Long customerId, String customerName, String customerPassword, String customerEmail,
+			Long customerPhone, String address, Long basketId,List<Long> productOrder) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerPassword = customerPassword;
+		this.customerEmail = customerEmail;
+		this.customerPhone = customerPhone;
+		this.productOrder = productOrder;
+		Address = address;
+		this.basketId = basketId;
+	}
+
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+
+	public void setProductOrder(List<Long> productOrder) {
+		this.productOrder = productOrder;
+	}
+
+
+	public String getCustomerPassword() {
+		return customerPassword;
+	}
+
+
+	public void setCustomerPassword(String customerPassword) {
+		this.customerPassword = customerPassword;
+	}
+
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+
+	public Long getCustomerPhone() {
+		return customerPhone;
+	}
+
+
+	public void setCustomerPhone(Long customerPhone) {
+		this.customerPhone = customerPhone;
+	}
+
+
+	public String getAddress() {
+		return Address;
+	}
+
+
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+
+	public Long getBasketId() {
+		return basketId;
+	}
+
+
+	public void setBasketId(Long basketId) {
+		this.basketId = basketId;
+	}
+
+
+	public List<Long> getProductOrder() {
+		return productOrder;
+	}
+	
+
+	
+	
+	
+	
+}

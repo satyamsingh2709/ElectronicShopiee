@@ -1,0 +1,65 @@
+package com.cg.es.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+public class ManagerModel {
+
+	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+
+//	@NotEmpty(message="password cannot be empty")
+//	@NotNull(message="password cannot be omitted")
+	private String password;
+
+
+	public ManagerModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public ManagerModel(Long id, String password) {
+		super();
+		this.id = id;
+		this.password = password;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+//	@OneToMany
+//	private List<Customer> customer;
+//	
+//	@OneToMany
+//	private List<Basket> basket;
+//	
+//	@OneToMany
+//	private List<ElectronicProduct> electronicproduct;
+//	
+//	@OneToMany
+//	private List<ElectronicProduct> electronicproduct;
+	
+	
+}

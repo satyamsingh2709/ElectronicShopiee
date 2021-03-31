@@ -1,0 +1,8 @@
+package com.cg.es.exception;
+
+public class CustomerNotFoundException {
+	public CustomerNotFoundException(String message) {
+		super(message); 
+	}
+
+}

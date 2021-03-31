@@ -1,0 +1,105 @@
+//package com.cg.es.service;
+//
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertNull;
+//
+//import java.util.Optional;
+//
+//import org.junit.jupiter.api.DisplayName;
+//import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.Mockito;
+//import org.mockito.junit.jupiter.MockitoExtension;
+//
+//import com.cg.es.repository.ElectronicProductRepository;
+//import com.cg.es.entity.ElectronicProductEntity;
+//import com.cg.es.exception.CustomerNotFoundException;
+//
+//import com.cg.es.model.ElectronicProductModel;
+//
+//@ExtendWith(MockitoExtension.class)
+//public class ElectronicProductServiceTest {
+//	@Mock
+//	private ElectronicProductRepository ElectronicproductRepository;
+//	
+//	@InjectMocks
+//	private ElectronicProductServiceImpl service;
+//	
+//	
+//	@Test
+//	@DisplayName("Product Details add")
+//	void testAdd() throws CustomerNotFoundException {
+//		ElectronicProductEntity product=new ElectronicProductEntity(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		Mockito.when(ElectronicproductRepository.save(product)).thenReturn(product);
+//
+//		ElectronicProductModel expected=new ElectronicProductModel(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		ElectronicProductEntity actual = service.addElectronicProductEntity(electronicproductEntity);
+//		
+//		assertEquals(expected,actual);
+//
+//	}
+//	
+//	@Test
+//	@DisplayName("Product Details should delete")
+//	void testDelete() throws CustomerNotFoundException {
+//		ElectronicProductEntity customer=new ElectronicProductEntity(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		Mockito.when(ElectronicproductRepository.save(customer)).thenReturn(customer);
+//
+//		ElectronicProductModel expected=new ElectronicProductModel(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		ElectronicProductEntity added = service.addElectronicProductEntity(customerEntity);
+//		
+//		assertEquals(expected,added);
+//		
+//		Mockito.doNothing().when(ElectronicproductRepository).deleteById(added.getProductId());
+//
+//		service.deleteelectronicproductEntity(added.getProductId());
+//	}
+//	
+//	@Test
+//	@DisplayName("get by Id ")
+//	void testGetById () {
+//		ElectronicProductEntity testdata=new electronicproductEntity(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		ElectronicProductEntity expected=new electronicproductEntity(1L,"timber wood","5600.00","09-02-2021");
+//		
+//		
+//		Mockito.when(ElectronicproductRepository.findById(testdata.getProductId())).thenReturn(Optional.of(testdata));
+//	
+//		ElectronicProductModel actual=(ElectronicProductModel) service.findById(testdata.getProductId());
+//		
+//		assertEquals(expected,actual);
+//	}
+//	
+//	@Test
+//	@DisplayName("get by id return null")
+//	void testGetByIdNull() {		
+//		
+//		Mockito.when(ElectronicproductRepository.findById(1L)).thenReturn(Optional.empty());
+//		
+//		ElectronicProductModel actual = service.findById(1L);
+//		assertNull(actual);
+//	}
+//	
+//	
+//
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//}

@@ -1,0 +1,145 @@
+package com.cg.es.entity;
+
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name="customer_details")
+public class CustomerEntity {
+
+	@Id
+	private Long customerId;
+
+	private String customerName;
+	
+
+	private String customerPassword;
+
+
+	private String customerEmail;
+
+
+	private Long customerPhone;
+
+	
+	private String address;
+     
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private BasketEntity basket;
+	
+	@OneToMany(mappedBy = "customer")
+	private List<ElectronicProductOrder> productOrders;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="managerId")
+	private Manager manager;
+
+	public CustomerEntity() {
+		
+	}
+
+	public CustomerEntity(Long customerId, String customerName, String customerPassword, String customerEmail,
+			Long customerPhone, String address, BasketEntity basket, List<ElectronicProductOrder> productOrders,
+			Manager manager) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerPassword = customerPassword;
+		this.customerEmail = customerEmail;
+		this.customerPhone = customerPhone;
+		this.address = address;
+		this.basket = basket;
+		this.productOrders = productOrders;
+		this.manager = manager;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerPassword() {
+		return customerPassword;
+	}
+
+	public void setCustomerPassword(String customerPassword) {
+		this.customerPassword = customerPassword;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public Long getCustomerPhone() {
+		return customerPhone;
+	}
+
+	public void setCustomerPhone(Long customerPhone) {
+		this.customerPhone = customerPhone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public BasketEntity getBasket() {
+		return basket;
+	}
+
+	public void setBasket(BasketEntity basket) {
+		this.basket = basket;
+	}
+
+	public List<ElectronicProductOrder> getProductOrders() {
+		return productOrders;
+	}
+
+	public void setProductOrders(List<ElectronicProductOrder> productOrders) {
+		this.productOrders = productOrders;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+	
+	
+
+	
+	
+	
+}

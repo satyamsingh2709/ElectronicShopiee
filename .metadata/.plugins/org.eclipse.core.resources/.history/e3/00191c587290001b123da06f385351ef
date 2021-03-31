@@ -1,0 +1,80 @@
+package com.cg.es.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+public class ElectronicProductModel {
+
+	
+	private Long code;
+	private String name;
+	private double price;
+	private LocalDate createDate;
+	private Long prdTypeId;
+
+	public ElectronicProductModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ElectronicProductModel(Long code, String name, double price, LocalDate createDate, Long prdTypeId) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.price = price;
+		this.createDate = createDate;
+		this.prdTypeId = prdTypeId;
+	}
+
+	public Long getCode() {
+		return code;
+	}
+
+	public void setCode(Long code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+
+	public Long getPrdTypeId() {
+		return prdTypeId;
+	}
+
+	public void setPrdTypeId(Long prdTypeId) {
+		this.prdTypeId = prdTypeId;
+	}
+	
+	
+	
+	
+
+
+	
+	
+}
